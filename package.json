@@ -1,0 +1,15 @@
+{
+  "name": "buger-eats",
+  "version": "1.0.0",
+  "description": "projeto cypress",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx cypress open"
+  },
+  "author": "Adriana Monteiro",
+  "license": "MIT",
+  "devDependencies": {
+    "cypress": "^9.3.1",
+    "cypress-file-upload": "^5.0.8"
+  }
+}
