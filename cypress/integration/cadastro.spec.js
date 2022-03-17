@@ -1,5 +1,5 @@
 
-
+import SignupPage from '../pages/SignupPage'
 
 describe('Cadastro', () => {
     it('Usuário deve se tornar um entregador', () => {
@@ -25,39 +25,13 @@ describe('Cadastro', () => {
             cnh: 'cnh-digital.jpg'
         }
 
-        //preenchendo Dados
-        cy.get('input[name="name"]').type(entregador.nome)
-        cy.get('input[name="cpf"]').type(entregador.cpf)
-        cy.get('input[name="email"]').type(entregador.email)
-        cy.get('input[name="whatsapp"]').type(entregador.whatsapp)
+        var signup = new SignupPage()
 
-        //buscar cep
-        cy.get('input[name="postalcode"]').type(entregador.endereco.cep)
-        cy.get('input[type="button"][value="Buscar CEP"]').click()
-
-        //preenchendo endereço
-        cy.get('input[name="address-number"]').type(entregador.endereco.numero)
-        cy.get('input[name="address-details"]').type(entregador.endereco.complemento)
-
-        //validando o endereço completado pelo CEP
-        cy.get('input[name="address"]').should('have.value', entregador.endereco.rua)
-        cy.get('input[name="district"]').should('have.value', entregador.endereco.bairro)
-        cy.get('input[name="city-uf"]').should('have.value', entregador.endereco.cidade_uf)
-
-        //usando CSS Selector
-        cy.contains('.delivery-method li', entregador.metodo_entrega).click()
-
-        //upload de arquivo
-        //npm install cypress-file-upload --save-dev
-        cy.get('input[accept^="image"]').attachFile(entregador.cnh)
-
-        //clica botão cadastre-se e valida modal
-        cy.get('form button[type="submit"]').click()
-
+        signup.go()
+        signup.fillForm(entregador)
+        signup.submit()
         const expectedMessage = 'Recebemos os seus dados. Fique de olho na sua caixa de email, pois e em breve retornamos o contato.'
-
-        cy.get('.swal2-container .swal2-html-container')
-            .should('have.text', expectedMessage)
+        signup.modalContentShouldBe()
 
     })
 
