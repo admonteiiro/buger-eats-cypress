@@ -36,13 +36,16 @@ class SignupPage {
     }
 
     submit() {
-        //clica botão cadastre-se e valida modal
         cy.get('form button[type="submit"]').click()
     }
 
     modalContentShouldBe(expectedMessage) {
         cy.get('.swal2-container .swal2-html-container')
             .should('have.text', expectedMessage)
+    }
+
+    alertMessageShouldBe(expectedMessage) {
+        cy.get('.alert-error').should('have.text', expectedMessage)
     }
 }
 
