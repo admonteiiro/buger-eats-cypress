@@ -48,4 +48,4 @@ class SignupPage {
     }
 }
 
-export default SignupPage
+export default new SignupPage
