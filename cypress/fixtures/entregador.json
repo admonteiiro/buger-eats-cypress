@@ -1,0 +1,34 @@
+{
+    "signup": {
+        "nome": "Test",
+        "cpf": "00000014141",
+        "email": "test@gmail.com",
+        "whatsapp": "11999999999",
+        "endereco": {
+            "cep": "04534011",
+            "rua": "Rua Joaquim Floriano",
+            "numero": "1000",
+            "complemento": "apto 84",
+            "bairro": "Itaim Bibi",
+            "cidade_uf": "São Paulo/SP"
+        },
+        "metodo_entrega": "Moto",
+        "cnh": "cnh-digital.jpg"
+    },
+    "cpf_inv": {
+        "nome": "Test cpf inválido",
+        "cpf": "00000014141AA",
+        "email": "test_inv@gmail.com",
+        "whatsapp": "11999999999",
+        "endereco": {
+            "cep": "04534011",
+            "rua": "Rua Joaquim Floriano",
+            "numero": "1000",
+            "complemento": "apto 84",
+            "bairro": "Itaim Bibi",
+            "cidade_uf": "São Paulo/SP"
+        },
+        "metodo_entrega": "Moto",
+        "cnh": "cnh-digital.jpg"
+    }
+}
